@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
@@ -13,4 +17,46 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+
+.custom-shape-divider-top-1649667467 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1649667467 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 197px;
+}
+
+.custom-shape-divider-top-1649667467 .shape-fill {
+  fill: #FFFFFF;
+}
+
+.custom-shape-divider-top-1649737602 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1649737602 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+
+.custom-shape-divider-top-1649737602 .shape-fill {
+  fill: rgb(249 115 22);
 }
