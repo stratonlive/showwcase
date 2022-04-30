@@ -11,9 +11,10 @@ const TitleName = styled.h4`
 function name() {
 
   return (
-    <div>
-        <TitleName>Type your name and click "Enter" below to begin!</TitleName>
-    </div>
+    <>
+        {/* <TitleName>Type your name and click "Enter" below to begin!</TitleName> */}
+        <h1 className="text-xl text-white bold text-center">Type your name and click "Enter" below to begin!</h1>
+    </>
   )
 }
 

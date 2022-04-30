@@ -24,9 +24,9 @@ const Button = styled.button `
 
 function submit({title} : any) {
   return (
-    <div>
+    <>
         <Button>{title}</Button>
-    </div>
+    </>
   )
 }
 

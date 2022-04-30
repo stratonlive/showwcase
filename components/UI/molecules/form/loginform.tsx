@@ -1,19 +1,29 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import {userCreate} from '../../../functional/login/service/userService'
 import LoginButton from '../../atom/button/login'
 import Name from '../../atom/text/home/name'
-
-type User = {
-    name: string
-}
+import User from '../../../types/user'
+import { useRouter } from 'next/router'
 
 function loginform() {
-    
+
+  const router = useRouter();
+  const loginbutton = "Enter";
     const { register, handleSubmit, reset, formState } = useForm<User>();
     const { errors } = formState;
 
-    const onSubmit = handleSubmit((data) => {
-        alert('success' + JSON.stringify(data, null, 4));
+    const onSubmit = handleSubmit(async (data: User) => {
+
+        const creatinguser = await userCreate(data);
+
+        if (creatinguser != null){
+          const setUser = localStorage.setItem("user", data.name);
+          router.push({
+            pathname: '/education',
+            query: { name: data.name }
+        }, '/education');
+        }
     })
 
   return (
@@ -28,7 +38,7 @@ function loginform() {
           {errors.name && <span className="text-sm text-red-600">Enter Your Name</span>}
           </div>
         
-        <LoginButton />
+        <LoginButton title={loginbutton}/>
         
         </form>
 

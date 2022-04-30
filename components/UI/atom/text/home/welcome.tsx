@@ -11,9 +11,10 @@ const TitleWelcome = styled.h1`
 function welcome() {
 
   return (
-    <div>
-        <TitleWelcome>Hi There! Welcome to your education showcase</TitleWelcome>
-    </div>
+    <>
+        {/* <TitleWelcome>Hi There! Welcome to your education showcase</TitleWelcome> */}
+        <h1 className="text-xl text-white bold text-center">Hi There! Welcome to your education showcase</h1>
+    </>
   )
 }
 
