@@ -5,7 +5,7 @@ import LoginComponent from '../components/UI/organisms/home/home'
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <>
 
       <section className="bg-orange-500 lg:max-h-600 md:max-h-780">
         <Shape></Shape>
@@ -19,7 +19,7 @@ const Home: NextPage = () => {
       <section>
         <Inverted />
       </section>
-    </div>
+    </>
   )
 }
 

@@ -6,13 +6,13 @@ import Meta from '../../atom/meta/meta'
 
 const Layout = ({ children } : any) => {
     return (
-        <div>
+        <>
             <Meta />
             <Header />
                 { children }
                 
             <Footer />
-        </div>
+        </>
     )
 }
 

@@ -7,10 +7,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     const username = req.query;
     const user = username.user;
-    console.log(user);
+ 
     const findUser = await prisma.user.findFirst({
         where: {
           name: `${user}`,
+        },
+        include: {
+          educations: true,
         },
       })
 

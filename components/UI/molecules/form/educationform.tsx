@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import schoollist from '../../../functional/education/service/schoolService';
 import Submit from '../../atom/button/submit';
@@ -10,11 +10,10 @@ import {educationCreate} from '../../../functional/education/service/educationSe
 
 const filter = createFilterOptions();
 
-function educationform() {
+function educationform({userdata} :any ) {
 
     const saveEducation = "Save";
     const [schools, setSchools] =useState([]);
-    const getUserId = sessionStorage.getItem("userId");
 
     const { register, handleSubmit, formState } = useForm<Education>();
     const { errors } = formState;
@@ -39,7 +38,7 @@ function educationform() {
     <>
         <form onSubmit={onSubmit}>
 
-        <input type="hidden" {...register('authorId', {required: true})} name="authorId" id="authorId"  value={getUserId ? getUserId : ""}/>
+        <input type="hidden" {...register('authorId', {required: true})} name="authorId" id="authorId"  value={userdata ? userdata.id : ""}/>
           
           <div className="relative z-0 w-full mb-6 group">
           <Autocomplete

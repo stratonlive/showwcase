@@ -7,6 +7,8 @@ type Education = {
     grade : string,
     description: string
     authorId: string
+    created_at?: Date
+    updated_at?: Date
 }
 
 export default Education

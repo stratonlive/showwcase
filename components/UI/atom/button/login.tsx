@@ -21,7 +21,7 @@ const Button = styled.button `
         display: block;
 `
 
-function LoginButton({title} : any) {
+function LoginButton() {
     return (
         <div className="flex items-center justify-center">
             

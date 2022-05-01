@@ -9,7 +9,6 @@ import { useRouter } from 'next/router'
 function loginform() {
 
   const router = useRouter();
-  const loginbutton = "Enter";
     const { register, handleSubmit, reset, formState } = useForm<User>();
     const { errors } = formState;
 
@@ -38,7 +37,7 @@ function loginform() {
           {errors.name && <span className="text-sm text-red-600">Enter Your Name</span>}
           </div>
         
-        <LoginButton title={loginbutton}/>
+        <LoginButton/>
         
         </form>
 

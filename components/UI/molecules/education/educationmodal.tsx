@@ -1,8 +1,9 @@
+import { AnySoaRecord } from 'dns'
 import React from 'react'
 import Neweducation from '../../atom/text/education/neweducation'
 import Educationform from '../form/educationform'
 
-function educationmodal() {
+function educationmodal({userdata}: any) {
   return (
     <div className="relative p-2 w-full h-full md:h-auto">
         {/* <!-- Modal content --> */}
@@ -13,7 +14,7 @@ function educationmodal() {
   
             </div>
 
-            <Educationform />
+            <Educationform userdata={userdata}/>
         </div>
     </div>
   )

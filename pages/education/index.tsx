@@ -1,25 +1,68 @@
 import { InferGetServerSidePropsType } from 'next'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Content from '../../components/UI/organisms/education/content'
 import Userpanel from '../../components/UI/organisms/education/userpanel'
-import { PrismaClient } from '@prisma/client'
+import axios from 'axios'
+import { useRouter } from 'next/router'
+import User from '../../components/types/user'
 
 
 function Education() {
   
+  const router = useRouter();
+  const [user, setUser] =useState("");
+  const [userdata, setUserdata] =useState({});
+  let getUser = null;
 
 
-  useEffect(() => {
+  useEffect( () => {
+    try{
+      getUser = localStorage.getItem("user");
+      if(getUser != null){
+        setUser(getUser);
+      }
+      else{
+        router.push('/');
+      }
       
+    }
+    catch (e){
+      console.log(e);
+      router.push('/');
+    }
 
-    });
+    if(user){
+      fetchUser(user);
+    }
+    
+  }, [user]);
+
+  
+
+  const fetchUser = async (user: string) => {
+    const url = "/api/user/" +user;
+
+    try{
+      let data = await axios.get(url).then((res: { data: User; }) => {
+          return res.data;
+      })
+
+      setUserdata(data);
+
+      return data;
+      }
+      catch (e){
+          
+      }
+  }
+
   
   return (
     <div>
-        <Userpanel />
+        <Userpanel userdata={userdata}/>
         <br />
         <section>
-            <Content />
+            <Content userdata={userdata}/>
         </section>
 
         <div id="main" className="main">

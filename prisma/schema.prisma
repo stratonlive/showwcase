@@ -15,8 +15,8 @@ model Education {
   schoolname      String
   degree          String
   major           String
-  startyear       Int  
-  endyear         Int  
+  startyear       String    @db.VarChar
+  endyear         String    @db.VarChar
   grade           String
   description     String
   createdAt       DateTime  @default(now()) @map(name: "created_at")

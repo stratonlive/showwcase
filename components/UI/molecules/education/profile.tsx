@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { ProfileSkeletonCard } from '../../atom/skeleton/profile';
 
 function profile({userdata} : any) {
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (userdata) {
+      setLoading(false);
+    }
+  }, [userdata]);
+  
   return (
     <>
-      
+      {loading ? <ProfileSkeletonCard />
+      :
       <div className="w-full max-w-xs sm:w-auto bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
 
       <div className="flex flex-col items-center pb-10">
@@ -19,8 +30,10 @@ function profile({userdata} : any) {
       </div>
       </div>
       </div>
+      }
 
     </>
+    
   )
 }
 
