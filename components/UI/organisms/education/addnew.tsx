@@ -1,6 +1,6 @@
 import React from 'react'
-import Educationform from '../../molecules/form/educationform' 
-import Neweducation from '../../atom/text/education/neweducation'
+import Educationform from '@components/UI/molecules/form/educationform' 
+import Neweducation from '@components/UI/atom/text/education/neweducation'
 
 function addnew() {
   return (

@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import schoollist from '../../../functional/education/service/schoolService';
-import Submit from '../../atom/button/submit';
+import schoollist from '@components/functional/education/service/schoolService';
+import Submit from '@components/UI/atom/button/submit';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
-import Education from '../../../types/education';
-import {educationCreate} from '../../../functional/education/service/educationService'
+import Education from '@components/types/education';
+import {educationCreate} from '@components/functional/education/service/educationService'
 
 
 const filter = createFilterOptions();

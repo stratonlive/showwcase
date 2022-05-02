@@ -1,19 +1,18 @@
 import { InferGetServerSidePropsType } from 'next'
 import React, { useEffect, useState } from 'react'
-import Content from '../../components/UI/organisms/education/content'
-import Userpanel from '../../components/UI/organisms/education/userpanel'
-import axios from 'axios'
+import Content from '@components/UI/organisms/education/content'
+import Userpanel from '@components/UI/organisms/education/userpanel'
 import { useRouter } from 'next/router'
-import User from '../../components/types/user'
+import Meta from '@components/UI/atom/meta/meta'
+import { SSRuserFetching, userFetching } from '@components/functional/education/service/userDataService'
 
 
-function Education() {
+function Education({ datafetch }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   
   const router = useRouter();
   const [user, setUser] =useState("");
-  const [userdata, setUserdata] =useState({});
+  const [userdata, setUserdata] =useState(datafetch);
   let getUser = null;
-
 
   useEffect( () => {
     try{
@@ -27,25 +26,21 @@ function Education() {
       
     }
     catch (e){
-      console.log(e);
-      router.push('/');
     }
 
-    if(user){
+    if(user && Object.keys(datafetch).length === 0){
       fetchUser(user);
     }
-    
+
   }, [user]);
 
   
 
   const fetchUser = async (user: string) => {
-    const url = "/api/user/" +user;
 
     try{
-      let data = await axios.get(url).then((res: { data: User; }) => {
-          return res.data;
-      })
+
+      let data = await userFetching(user);
 
       setUserdata(data);
 
@@ -58,35 +53,38 @@ function Education() {
 
   
   return (
-    <div>
+    <>
+    <Meta 
+    title="Education" 
+    keywords="Web Application, Showwcase profile, Showwcase education, Where developer meets, software community"
+    description="Web Application for developers community profile education" />
+    
         <Userpanel userdata={userdata}/>
         <br />
         <section>
             <Content userdata={userdata}/>
         </section>
-
-        <div id="main" className="main">
-
-        </div>
         
-    </div>
+    </>
   )
 }
 
-// export async function getServerSideProps(ctx: any) {
+export async function getServerSideProps(ctx: any) {
 
-//   const education = await prisma.user.findMany({
-//     where: {
-//       name: "dana",
-//     },
-//     include: {
-//       educations: true,
-//     },
-//   });
+  let datafetch = {};
 
-//   return {
-//     props: {education}, // will be passed to the page component as props
-//   }
-// }
+  if(ctx.query !== null){
+    const username = ctx.query.name;
+
+    const data = await SSRuserFetching(username);
+
+    datafetch = data;
+
+  }
+
+  return {
+    props: {datafetch}, // will be passed to the page component as props
+  }
+}
 
 export default Education

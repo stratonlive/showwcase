@@ -1,6 +1,6 @@
 import { AnySoaRecord } from 'dns'
 import React from 'react'
-import Neweducation from '../../atom/text/education/neweducation'
+import Neweducation from '@components/UI/atom/text/education/neweducation'
 import Educationform from '../form/educationform'
 
 function educationmodal({userdata}: any) {

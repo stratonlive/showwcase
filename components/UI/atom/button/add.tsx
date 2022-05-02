@@ -1,26 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
 
-const Button = styled.button `
-    display: inline-block;
-    color: blue;
-    font-size: 1em;
-    margin: 1em;
-    padding: 0.25em 1em;
-    border: 2px solid darkblue
-    border-radius: 5px;
-    display: block;
-    :hover{
-        display: inline-block;
-        color: purple;
-        font-size: 1em;
-        margin: 1em;
-        padding: 0.25em 1em;
-        border: 2px solid darkpurple;
-        border-radius: 5px;
-        display: block;
-}
-`
 
 function AddButton({title} : any) {
   return (

@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
-import Shape from '../components/UI/atom/shape/shape'
-import Inverted from '../components/UI/atom/shape/inverted'
-import LoginComponent from '../components/UI/organisms/home/home'
+import Shape from '@components/UI/atom/shape/shape'
+import Inverted from '@components/UI/atom/shape/inverted'
+import LoginComponent from '@components/UI/organisms/home/home'
 
 const Home: NextPage = () => {
   return (

@@ -1,11 +1,10 @@
 import axios from 'axios'
-import Education from '../../../types/education'
+import Education from '@components/types/education'
 
 
 const url = "api/educations";
 
 export const educationCreate = async (data: Education) => {
-
     
     const body = data;
 

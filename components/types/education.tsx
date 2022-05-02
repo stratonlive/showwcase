@@ -1,4 +1,5 @@
 type Education = {
+    id?: string,
     schoolname : string,
     degree : string,
     major : string,

@@ -11,7 +11,6 @@ const TitleNewEducation = styled.h1`
 function neweducation() {
   return (
     <>
-        {/* <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">Insert New Education</h3> */}
         <TitleNewEducation>Insert New Education</TitleNewEducation>
     </>
   )

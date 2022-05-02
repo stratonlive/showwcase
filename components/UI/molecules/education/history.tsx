@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { educationDelete } from '../../../functional/education/service/educationService';
-import { EduSkeletonCard } from '../../atom/skeleton/education';
+import { educationDelete } from '@components/functional/education/service/educationService';
+import { EduSkeletonCard } from '@components/UI/atom/skeleton/education';
 
 function history({userdata} : any) {
 
@@ -29,13 +29,12 @@ function history({userdata} : any) {
     [],
   )
 
-
   return (
     <>
       {loading ? <EduSkeletonCard />
       :
       <>
-      {educations ? educations.map((item :any) => (
+      {educations.length !==0 ? educations.map((item :any) => (
         <div key={item.id}>
           <div className="p-6 w-full max-w-3xl bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
@@ -63,7 +62,12 @@ function history({userdata} : any) {
         
           </div><br />
         </div>
-      )) : "none" }
+      )) : 
+      <div className="p-6 w-full max-w-3xl bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-600 dark:text-white">You need to add education to your profile.</h5>
+      </div>
+      }
+
       </>
       }       
     </>

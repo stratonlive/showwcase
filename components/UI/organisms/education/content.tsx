@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import Profile from '../../molecules/education/profile'
-import History from '../../molecules/education/history'
+import React from 'react'
+import Profile from '@components/UI/molecules/education/profile'
+import History from '@components/UI/molecules/education/history'
 
 
 function content({userdata}: any) {

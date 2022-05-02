@@ -1,9 +1,9 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import {userCreate} from '../../../functional/login/service/userService'
-import LoginButton from '../../atom/button/login'
-import Name from '../../atom/text/home/name'
-import User from '../../../types/user'
+import {userCreate} from '@components/functional/login/service/userService'
+import LoginButton from '@components/UI/atom/button/login'
+import Name from '@components/UI/atom/text/home/name'
+import User from '@components/types/user'
 import { useRouter } from 'next/router'
 
 function loginform() {

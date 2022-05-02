@@ -1,6 +1,6 @@
 import React from 'react'
-import Loginform from '../../molecules/form/loginform'
-import Welcome from '../../atom/text/home/welcome'
+import Loginform from '@components/UI/molecules/form/loginform'
+import Welcome from '@components/UI/atom/text/home/welcome'
 
 function loginComponent() {
   return (
